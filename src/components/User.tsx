@@ -1,27 +1,10 @@
 import { Card, CardContent, CardMedia, Typography } from "@material-ui/core";
 import React from "react"
+import { UserType } from "../state/Types";
 
-type User = {
-   gender: string
-   name: {
-      title: string
-      first: string
-      last: string
-   }
-   picture: {
-      large: string
-      medium: string
-      thumbnail: string
-   }
-   dob: {
-      date: string,
-      age: number
-   }
-   nat: string
-   email:string
-}
 
-const User = (props:User) => {
+
+const User = (props:UserType) => {
    
       console.log('RENDER');
       

@@ -1,12 +1,18 @@
+
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import { Api } from "../api/api"
+import { UserType } from "./Types"
 type Filters = {
    gender:string
-   curentNationalitys:string[]
+   nat:string[]
 }
+
 const initialState = {
-  users : [],
-  filters : {} as Filters,
+  users : [] as UserType[],
+  filters : {
+   gender: 'all',
+   nat:[]
+  }  as Filters,
   fetchingUsers : false
 }
 export const getUsers = createAsyncThunk(
@@ -26,12 +32,22 @@ export const usersSlice = createSlice({
  
   initialState,
   reducers: {
-    getUsers: (state, action) => {
+    setGender: (state, action) => {
+       if (action.payload !== null) {
+          state.filters.gender = action.payload
+       }
+      
       
     },
-    setFilters: (state, action) => {
-       console.log(action.payload);
+    setNationalitys: (state, action) => {
+            
+       if (action.payload !== null) {
+         state.filters.nat = action.payload
+         
+         
+      }
     },
+    
    
   },
   extraReducers: {
@@ -61,7 +77,7 @@ export const usersSlice = createSlice({
   }  
 })
 
-export const { setFilters } = usersSlice.actions
+export const {setGender,setNationalitys } = usersSlice.actions
 
 
 export default usersSlice.reducer

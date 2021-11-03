@@ -8,7 +8,6 @@ class Api {
    static getUsers() {
      return instance.get(`/?results=15`)
    }
-
 }
 
 export {Api}
