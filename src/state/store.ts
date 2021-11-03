@@ -1,12 +1,10 @@
-import  usersSlice  from './usersSlice';
-import { configureStore } from '@reduxjs/toolkit'
-
+import usersSlice from "./usersSlice";
+import { configureStore } from "@reduxjs/toolkit";
 
 export const store = configureStore({
   reducer: {
-     users: usersSlice
-   },
-})
+    users: usersSlice,
+  },
+});
 
-
-export type RootState = ReturnType<typeof store.getState>
+export type RootState = ReturnType<typeof store.getState>;
